@@ -1,11 +1,18 @@
 class BashUi :
     page = 1
+    rows = 2
+    columns = 2
     def __init__(self) -> None:
         pass
     def start(self) -> None :
         page = 1
         self.print_welcom()
-        return self.first_page()
+    def print_enter_row(self):
+        print("i'm here to help you")
+        return input("Please Enter Count Rows You Need   : -  ")
+    def print_enter_column(self,rows):
+        print("count rows know is %d"%rows)
+        return input("Please Enter Count Column You Need   : -  ")
     def print_welcom(self) -> None :
         print("                                                                                        ")
         print("                                                                                        ")

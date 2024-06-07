@@ -8,20 +8,34 @@ class Graph:
     axi :any
     count =-1
     counter = -1
-    def __init__(self,y=3) -> None:
-        self.fig ,self.axi = plt.subplots(3,3)
-        self.count = y
-        pass
+    x = 0
+    y = 0
+    x_counter = -1
+    y_counter = 0
+    def __init__(self,x,y) -> None:
+        self.fig ,self.axi = plt.subplots(x,y)
+        self.count = x*y
+        self.x = x
+        self.y = y
     def draw(self,num):
-        self.counter += 1
+        if(self.x_counter >= self.x -1 ):
+            self.y_counter += 1
+            self.x_counter = -1
+        self.x_counter += 1 
+        self.counter = self.counter + 1
         if(num == 1):
             self.draw_year()
+        if((self.counter+1) >= self.count) :
+            return False
+        # else :
+        return True
+        
     def draw_year(self) -> None :
         self.year_data()
-        self.axi[0,self.counter].plot(self.year_flights["Year"],self.year_flights["Total"],label="Total")
-        self.axi[0,self.counter].plot(self.year_flights["Year"],self.year_flights["Charter"],label="Charter")
-        self.axi[0,self.counter].plot(self.year_flights["Year"],self.year_flights["Scheduled"],label="Scheduled")
-        self.axi[0,self.counter].legend()
+        self.axi[self.x_counter,self.y_counter].plot(self.year_flights["Year"],self.year_flights["Total"],label="Total")
+        self.axi[self.x_counter,self.y_counter].plot(self.year_flights["Year"],self.year_flights["Charter"],label="Charter")
+        self.axi[self.x_counter,self.y_counter].plot(self.year_flights["Year"],self.year_flights["Scheduled"],label="Scheduled")
+        self.axi[self.x_counter,self.y_counter].legend()
     def year_data(self):
         self.year_flights  = self.departure_obj.group_by_key_and_sum(keys=["Year"],sum_col=["Total","Charter","Scheduled"])
     def show(self) -> None :
