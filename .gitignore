@@ -1,3 +1,6 @@
 .venv
 readme.txt
 notes.txt
+*/__pycache__
+__pycache__
+lib/__pycache__
