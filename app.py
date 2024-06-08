@@ -14,16 +14,21 @@ def __init__():
         columns = int(columns) if columns.isnumeric() else ""
     graph = Graph(rows,columns)
     draw = True
-    input = 1
-        # num = input * ui.page
-    num = 1
-    while(input != 0 and draw ):
-        # input = ui.first_page()
-        # input = int(input) if input.isnumeric() else 0 
-        if(ui.page == 1):
-            input = ui.first_page()
-            input = int(input) if input.isnumeric() else 0 
-            num = input * ui.page
-        draw = graph.draw(num=num)
+    category = 1
+    choice = -1
+    while(category != 0 and draw ):
+        # if(ui.page == 1):
+        category = ui.categories_page()
+        category = int(category) if category.isnumeric() else 0 
+        if(category > 0 and category <= ui.num_categories ):
+            ui.page = 2
+            choice = ui.pageByCategory(category)
+            choice = int(choice) if choice.isnumeric() else -1               
+            if(choice == -1):
+                category = 1
+            elif(choice == 0 ):  
+                ui.page == 1
+                continue
+        draw = graph.draw(category ,choice)
     graph.show()
 __init__()
