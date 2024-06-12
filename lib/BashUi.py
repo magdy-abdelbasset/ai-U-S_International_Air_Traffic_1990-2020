@@ -29,8 +29,8 @@ class BashUi :
         print("2 -  Analysis Count Flights By History And Carrier")
         print("3 -  Analysis Count Passengers By History")
         print("4 -  Analysis Count Passengers By History And Carrier")
-        print("5 -  Analysis Count Passengers By History And Airpor")
-        print("6 -  Analysis Count Passengers By History , Airpor And Carrier")
+        # print("5 -  Analysis Count Passengers By History And Airport")
+        # print("6 -  Analysis Count Passengers By History , Airport And Carrier")
         self.print_exit()
         return input("Enter Your Choice And Click Enter    :-   ")
     def pageByCategory(self,category):
@@ -41,15 +41,27 @@ class BashUi :
             print("3 -  Analysis Count Flights By Date")
             print("4 -  Analysis Count Flights By Years And Months")
         elif(category == 2):
-            pass
+            print("What You Want")
+            print("1 -  Analysis Count Flights By Years And Carrier")
+            print("2 -  Analysis Count Flights By Months And Carrier")
         elif(category == 3):
-            pass
+            print("What You Want")
+            print("1 -  Analysis Count Passengers By Years")
+            print("2 -  Analysis Count Passengers By Months")
+            print("3 -  Analysis Count Passengers By Date")
+            print("4 -  Analysis Count Passengers By Years And Months")
         elif(category == 4):
-            pass
-        elif(category == 5):
-            pass
-        elif(category == 6):
-            pass
+            print("What You Want")
+            print("1 -  Analysis Count Passengers By Years And Carrier")
+            print("2 -  Analysis Count Passengers By Months And Carrier")
+        # elif(category == 5):
+        #     print("What You Want")
+        #     print("1 -  Analysis Count Flights By Years And Carrier")
+        #     print("2 -  Analysis Count Flights By Months And Carrier")
+        # elif(category == 6):
+        #     print("What You Want")
+        #     print("1 -  Analysis Count Flights By Years And Carrier")
+        #     print("2 -  Analysis Count Flights By Months And Carrier")
         self.print_back()
         self.print_exit()
         return input("Enter Your Choice And Click Enter    :-   ")
